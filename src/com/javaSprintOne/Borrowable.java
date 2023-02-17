@@ -1,2 +1,4 @@
-package com.javaSprintOne;public class Borrowable {
+package com.javaSprintOne;
+
+public interface Borrowable {
 }

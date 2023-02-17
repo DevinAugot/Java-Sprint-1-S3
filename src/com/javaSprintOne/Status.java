@@ -1,2 +1,5 @@
-package com.javaSprintOne;public enum Status {
+package com.javaSprintOne;
+
+public enum Status {
+    AVAILABLE, CHECKED_OUT, OVERDUE;
 }
