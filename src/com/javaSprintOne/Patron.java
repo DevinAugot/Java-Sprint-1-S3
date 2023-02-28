@@ -1,23 +1,45 @@
 package com.javaSprintOne;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class Patron {
+
     private String firstLastName;
     private String address;
     private String phoneNum;
+    private ArrayList<Book> borrowedbooks;
 
 
-    public String getBookList() {
-        return bookList;
+    public Patron(){
+        this.borrowedbooks = new ArrayList<Book>();
+    }
+    
+    
+    
+    public ArrayList<Book> getBorrowedbooks() {
+      return this.borrowedbooks;
     }
 
-    public void setBookList(String bookList) {
-        this.bookList = bookList;
+    @Override
+    public String toString() {
+        return "Patron{" +
+                "firstLastName='" + firstLastName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", borrowedbooks=" + borrowedbooks +
+                '}';
+    }
+public void addBorrowedBooks(Book book){
+        this.borrowedbooks.add(book);
+}
+
+
+    public void removeBorrowedBook(Book book){
+        this.borrowedbooks.remove(book);
     }
 
-    private String bookList;
+   
 
     public String getFirstLastName() {
         return firstLastName;
@@ -43,13 +65,8 @@ public class Patron {
         this.phoneNum = phoneNum;
     }
 
- /// Trying to get array to print properly instead of empty or default reference numbers
-    ArrayList<String> patronList = new ArrayList<>();
-    @Override
-    public String toString(){
-    return String.valueOf(patronList);
 }
 
 
 
-}
+
