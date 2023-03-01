@@ -1,13 +1,5 @@
 package com.javaSprintOne;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Scanner;
 
 /*
  * This class is the engine of the program
@@ -24,31 +16,40 @@ public Library(){
     this.booksList = new ArrayList<>();
     this.patronList = new ArrayList<>();
     this.authorList = new ArrayList<>();
-};
+}
     @Override
-    public void borrowBook(Book book,Patron patron) {
-        if (book.getNumberOfCopies() < 1) {
+    public void borrowBook(Book book,Patron patron, int QTY) {
+        if (book.getNumberOfCopies() < QTY) {
             book.setType(StatusType.CHECKED_OUT);
-            System.out.println("This book is currently checked out");
+            System.out.println("This book is currently checked out or copy amount is higher then amount in stock");
     } else{
+            for (int i = 0; i < QTY ; i++) {
+                patron.addBorrowedBooks(book);
+            }
             patron.addBorrowedBooks(book);
-            book.setNumberOfCopies(book.getNumberOfCopies() - 1);
+            book.setNumberOfCopies(book.getNumberOfCopies() - QTY);
             System.out.println("Book successfully borrowed");
         }
     }
 
     @Override
-    public void returnBook(Book book,Patron patron) {
-    if(patron.getBorrowedbooks().contains(book)){
-        patron.removeBorrowedBook(book);
-        book.setNumberOfCopies(book.getNumberOfCopies() + 1);
-        book.setType(StatusType.AVAILABLE);
-        System.out.println("Book successfully returned");
+    public void returnBook(Book book,Patron patron, int QTY) {
+        for (int i = 0; i < QTY; i++) {
+            if (patron.getBorrowedbooks().contains(book)) {
+                patron.removeBorrowedBook(book);
+                book.setNumberOfCopies(book.getNumberOfCopies() + 1);
+                book.setType(StatusType.AVAILABLE);
+                System.out.println("Book successfully returned");
+            } else {
+                System.out.printf("System Error: %s only has %d copy/copies of %s%n", patron.getFirstLastName(),
+                        (QTY - i),
+                        book.getBookTitle());
+                break;
+            }
+        }
+
     }
-    else{
-        System.out.println("Error patron does not have the book");
-    }
-    }
+
     public void addPatron(Patron patron){
         this.patronList.add(patron);
     }

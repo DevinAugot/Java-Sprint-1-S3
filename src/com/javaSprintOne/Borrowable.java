@@ -10,9 +10,9 @@ public interface Borrowable {
 
 
 
-  void borrowBook(Book book, Patron patron);
+  void borrowBook(Book book, Patron patron, int QTY);
 
-  void returnBook(Book book, Patron patron);
+  void returnBook(Book book, Patron patron, int QTY);
 
 
 
