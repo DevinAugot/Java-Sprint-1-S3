@@ -1,5 +1,7 @@
 package com.javaSprintOne;
 
-public enum Status {
+public enum StatusType {
     AVAILABLE, CHECKED_OUT, OVERDUE;
+
+
 }
