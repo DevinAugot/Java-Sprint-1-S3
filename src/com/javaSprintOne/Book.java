@@ -92,12 +92,12 @@ public class Book extends ArrayList<Book> implements Borrowable {
     }
 
     @Override
-    public void borrowBook(Book book, Patron patron) {
+    public void borrowBook(Book book, Patron patron, int QTY) {
 
     }
 
     @Override
-    public void returnBook(Book book, Patron patron) {
+    public void returnBook(Book book, Patron patron, int QTY) {
 
     }
 
