@@ -26,7 +26,6 @@ public Library(){
             for (int i = 0; i < QTY ; i++) {
                 patron.addBorrowedBooks(book);
             }
-            patron.addBorrowedBooks(book);
             book.setNumberOfCopies(book.getNumberOfCopies() - QTY);
             System.out.println("Book successfully borrowed");
         }
