@@ -21,16 +21,8 @@ public class Patron {
       return this.borrowedbooks;
     }
 
-    @Override
-    public String toString() {
-        return "Patron{" +
-                "firstLastName='" + firstLastName + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
-                ", borrowedbooks=" + borrowedbooks +
-                '}';
-    }
-public void addBorrowedBooks(Book book){
+
+    public void addBorrowedBooks(Book book){
         this.borrowedbooks.add(book);
 }
 
@@ -63,6 +55,15 @@ public void addBorrowedBooks(Book book){
 
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
+    }
+    @Override
+    public String toString() {
+        return "Patron{" +
+                "firstLastName='" + firstLastName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", borrowedbooks=" + borrowedbooks +
+                '}';
     }
 
 }

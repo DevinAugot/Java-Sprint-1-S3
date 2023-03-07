@@ -6,13 +6,42 @@ public class Author {
     private String authorName;
     private String DOB;
 
-    public String getAuthorBooks() {
-        return authorBooks;
+    @Override
+    public String toString() {
+        return "Author{" +
+                "authorName='" + authorName + '\'' +
+                ", DOB='" + DOB + '\'' +
+                ", writtenBooks=" + writtenBooks +
+                ", authorBooks='" + authorBooks + '\'' +
+                '}';
     }
 
-    public void setAuthorBooks(String authorBooks) {
-        this.authorBooks = authorBooks;
+    public ArrayList<Book>  writtenBooks;
+
+
+    public Author(String authorName, String DOB){
+        this.authorName = authorName;
+        this.DOB = DOB;
+        this.writtenBooks = new ArrayList<>();
+
     }
+
+
+
+    public ArrayList<Book> getWrittenBooks() {
+        return writtenBooks;
+    }
+
+    public void setWrittenBooks(ArrayList<Book> writtenBooks) {
+        this.writtenBooks = writtenBooks;
+    }
+    public void addAuthorBooks(Book book){
+        this.writtenBooks.add(book);
+    }
+    public void deleteAuthorBooks(Book book){
+        this.writtenBooks.remove(book);
+    }
+
 
     private String authorBooks;
     public String getAuthorName() {
@@ -23,41 +52,10 @@ public class Author {
         this.authorName = authorName;
     }
 
-    public String getDOB() {
-        return DOB;
-    }
-
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
-    }
 
 
-    public ArrayList<String> getAuthorBookList() {
-        return authorBookList;
-    }
-
-    public void setAuthorBookList(ArrayList<String> authorBookList) {
-        this.authorBookList = authorBookList;
-    }
 
 
-    ArrayList<String> authorBookList = new ArrayList<>();
-
-      public Author(String authorName, String DOB, String authorBooks){
-            this.authorName = authorName;
-            this.DOB = DOB;
-            this.authorBooks = authorBooks ;
-
-        }
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "authorName='" + authorName + '\'' +
-                ", DOB='" + DOB + '\'' +
-                ", authorBooks='" + authorBooks + '\'' +
-                '}';
-    }
 
 }
 

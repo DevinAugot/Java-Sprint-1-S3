@@ -17,10 +17,10 @@ public class Main {
 
 
         // creating new authors
-        Author someGuy = new Author("some guy", "1945/07/23", "Peter Rabbit");
+        Author someGuy = new Author("some guy", "1945/07/23");
         someGuy.setAuthorName("H.P LoveJoy");// editing Author
 
-        Author JrTolken = new Author("J.R Tolken", "1976/04/08", "LOTR");
+        Author JrTolken = new Author("J.R Tolken", "1976/04/08");
 
         // creating books
         Book book1 = new Book("Peter Rabbit", someGuy, "4567C", "BookComp", 10);
@@ -33,6 +33,20 @@ public class Main {
         book1.setType(StatusType.CHECKED_OUT);
         book2.setType(StatusType.OVERDUE);
         book3.setType(StatusType.AVAILABLE);
+
+         // adding books to Author writtenBooks array
+        someGuy.addAuthorBooks(book1);
+        JrTolken.addAuthorBooks(book2);
+        JrTolken.addAuthorBooks(book3);
+
+        // delete book from author writtenBooks array
+//        JrTolken.deleteAuthorBooks(book2);
+
+
+        // printing out the writtenBooks array by author
+        System.out.println("Books written by author: " + " " + JrTolken.getWrittenBooks() + "\n");
+
+
 
 
 

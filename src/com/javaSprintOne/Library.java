@@ -57,17 +57,11 @@ public Library(){
     public void removePatron(Patron patron){
         this.patronList.remove(patron);
     }
-public void addAuthor(Author author){
+    public void addAuthor(Author author){
         this.authorList.add(author);
-}
-public void removeAuthor(Author author){
-    this.authorList.remove(author);
 }
     public void addBook(Book book){
         this.booksList.add(book);
-    }
-    public void removeBook(Book book){
-        this.booksList.remove(book);
     }
     public ArrayList<Book> searchBooks(String searchParameter){
         ArrayList<Book> matchedBooks = new ArrayList<>();

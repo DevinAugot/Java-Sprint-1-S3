@@ -1,11 +1,13 @@
 package com.javaSprintOne;
 
 import java.util.ArrayList;
-import java.util.function.IntFunction;
-
-public class Book extends ArrayList<Book> implements Borrowable {
 
 
+public class Book implements Borrowable {
+
+    public StatusType getType() {
+        return type;
+    }
     private StatusType type;
     public String bookTitle;
     public String bookAuthor;
@@ -15,6 +17,15 @@ public class Book extends ArrayList<Book> implements Borrowable {
     public String bookPublisher;
     public int numberOfCopies;
 
+    public Book(String bookTitle, Author authorName, String ISBN, String bookPublisher, int numberOfCopies){
+        this.bookTitle = bookTitle;
+
+        this.bookAuthor =  authorName.getAuthorName();; // need help
+        this.ISBN = ISBN;
+        this.bookPublisher = bookPublisher;
+        this.numberOfCopies = numberOfCopies;
+
+    }
 
     public String getBookTitle() {
         return bookTitle;
@@ -60,15 +71,7 @@ public class Book extends ArrayList<Book> implements Borrowable {
     }
 
 // compile book constructor
-    public Book(String bookTitle, Author authorName, String ISBN, String bookPublisher, int numberOfCopies){
-        this.bookTitle = bookTitle;
 
-        this.bookAuthor =  authorName.getAuthorName();; // need help
-       this.ISBN = ISBN;
-       this.bookPublisher = bookPublisher;
-       this.numberOfCopies = numberOfCopies;
-
-    }
 
     @Override
     public String toString() {
@@ -83,9 +86,7 @@ public class Book extends ArrayList<Book> implements Borrowable {
 
 
 
-    public StatusType getType() {
-        return type;
-    }
+
 
     public void setType(StatusType type) {
         this.type = type;
@@ -101,7 +102,5 @@ public class Book extends ArrayList<Book> implements Borrowable {
 
     }
 
-
-    /// attempting return and borrow methods
 
 }
